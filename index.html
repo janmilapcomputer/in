@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Milap | Advanced Computer Education Almora</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #ffd600;
+            --whatsapp: #25d366;
+            --poster-red: #d32f2f;
+            --dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: #f0f2f5; color: #333; overflow-x: hidden; }
+
+        /* Announcement Bar */
+        .reg-header {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8rem;
+            border-bottom: 3px solid var(--accent);
+            line-height: 1.4;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--glass);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .logo-text { font-weight: 800; font-size: 22px; color: var(--primary); letter-spacing: 1px; }
+
+        .nav-links a {
+            text-decoration: none; color: var(--dark);
+            margin-left: 20px; font-weight: 600; transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .admin-btn {
+            background: var(--primary); color: white !important;
+            padding: 8px 18px; border-radius: 50px; cursor: pointer;
+            border: none; outline: none;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(45deg, rgba(30,60,114,0.9), rgba(42,82,152,0.8)), 
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-attachment: fixed;
+            height: 55vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 20px;
+        }
+
+        header h1 { font-size: 3rem; color: var(--accent); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
+
+        .admission-badge {
+            background: var(--accent); color: black;
+            padding: 12px 30px; border-radius: 50px;
+            font-weight: bold; margin-top: 25px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Course Section */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); position: relative; }
+        .section-title::after { content: ''; width: 80px; height: 4px; background: var(--poster-red); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s; border-bottom: 5px solid var(--primary);
+            display: flex; flex-direction: column;
+        }
+        .course-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .course-header { background: var(--primary); color: white; padding: 20px; text-align: center; }
+        .course-body { padding: 25px; flex-grow: 1; }
+        .course-body ul { list-style: none; }
+        .course-body li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
+        .course-body li::before { content: "✔"; color: var(--whatsapp); font-weight: bold; }
+
+        /* Inquiry Form */
+        .inquiry-box {
+            background: white; padding: 40px; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-top: 60px;
+            border-top: 6px solid var(--poster-red);
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        input, select, textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd;
+            border-radius: 10px; margin-top: 12px; font-size: 16px; outline: none;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--primary); }
+
+        .btn-whatsapp {
+            background: var(--whatsapp); color: white; border: none;
+            padding: 18px; width: 100%; border-radius: 10px;
+            font-size: 18px; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            margin-top: 25px; transition: 0.3s;
+        }
+        .btn-whatsapp:hover { background: #128c7e; transform: translateY(-2px); }
+
+        /* Admin Modal */
+        .modal {
+            display: none; position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            background: white; width: 90%; max-width: 380px; margin: 120px auto;
+            padding: 40px; border-radius: 20px; text-align: center;
+            position: relative; animation: slideDown 0.4s ease;
+        }
+        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .close-mark {
+            position: absolute; right: 20px; top: 15px;
+            font-size: 28px; color: #aaa; cursor: pointer;
+            line-height: 1; transition: 0.3s;
+        }
+        .close-mark:hover { color: var(--poster-red); transform: rotate(90deg); }
+
+        .modal-content i { font-size: 50px; color: var(--primary); margin-bottom: 15px; }
+        .modal-content h3 { margin-bottom: 20px; color: var(--dark); }
+
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; margin-top: 80px; }
+        .footer-info p { margin: 8px 0; font-size: 0.95rem; opacity: 0.8; }
+        .social-icons { margin: 20px 0; }
+        .social-icons i { font-size: 24px; margin: 0 15px; cursor: pointer; transition: 0.3s; }
+        .social-icons i:hover { color: var(--accent); }
+
+        @media (max-width: 768px) { 
+            .form-row { grid-template-columns: 1fr; } 
+            header h1 { font-size: 2.2rem; }
+            .logo-text { font-size: 18px; }
+            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
+            .admin-btn { padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="reg-header">
+    ESTD - 2012 | Regd No. 775 | धारा 60 के तहत भारत सरकार द्वारा पंजीकृत <br>
+    ISO 9001:2015 Certified Institute
+</div>
+
+<nav>
+    <div class="logo-text">JAN MILAP ALMORA</div>
+    <div class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#inquiry">Apply Now</a>
+        <button class="admin-btn" onclick="toggleModal('adminModal')">Admin</button>
+    </div>
+</nav>
+
+<header>
+    <h1>जन मिलाप कंप्यूटर संस्थान</h1>
+    <p>Empowering Students with Digital Excellence Since 2012</p>
+    <div class="admission-badge">ADMISSION OPEN 2026 - No Registration Fee</div>
+</header>
+
+<div class="container">
+    <h2 class="section-title" id="courses">Advanced Specialized Courses</h2>
+    
+    <div class="course-grid">
+        <div class="course-card">
+            <div class="course-header"><h3>ADCA (1 Year)</h3></div>
+            <div class="course-body">
+                <ul>
+                    <li>Computer Fundamentals</li>
+                    <li>Typing (Hindi & English)</li>
+                    <li>MS Office (Word, Excel, PPT)</li>
+                    <li>Web Design Basics (HTML/CSS)</li>
+                    <li>Tally ERP & Prime</li>
+                    <li>DTP (Photoshop/CorelDraw)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-header" style="background: #2e7d32;"><h3>Expert Accounting</h3></div>
+            <div class="course-body">
+                <ul>
+                    <li>Tally Prime with GST</li>
+                    <li>Advanced Excel (Vlookup/Macros)</li>
+                    <li>E-Filing & Taxation</li>
+                    <li>Payroll & Inventory Management</li>
+                    <li>Banking Operations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-header" style="background: #fb8c00;"><h3>Graphics & DTP</h3></div>
+            <div class="course-body">
+                <ul>
+                    <li>Adobe Photoshop Expert</li>
+                    <li>CorelDraw (Logo/Banner Design)</li>
+                    <li>PageMaker / InDesign</li>
+                    <li>Digital Printing Basics</li>
+                    <li>Social Media Post Design</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="inquiry-box" id="inquiry">
+        <h2 style="text-align:center; color: var(--primary); margin-bottom: 10px;">Student Inquiry Form</h2>
+        <p style="text-align:center; font-size: 0.9rem; color: #666;">एडमिशन के लिए अपनी जानकारी यहाँ भरें</p>
+        
+        <div class="form-row">
+            <input type="text" id="s_name" placeholder="आपका पूरा नाम (Full Name)">
+            <input type="tel" id="s_phone" placeholder="मोबाइल नंबर (Mobile)">
+        </div>
+        <select id="s_course">
+            <option value="" disabled selected>कोर्स चुनें (Select Course)</option>
+            <option value="ADCA One Year">ADCA One Year</option>
+            <option value="Tally Accounting">Tally Accounting</option>
+            <option value="Hardware Networking">Hardware & Networking</option>
+            <option value="Graphic Designing">Graphic Designing</option>
+            <option value="CCC / BCC">CCC / BCC</option>
+        </select>
+        <textarea id="s_msg" rows="3" placeholder="अगर कोई सवाल है तो यहाँ लिखें..."></textarea>
+        
+        <button class="btn-whatsapp" onclick="sendInquiry()">
+            SEND INQUIRY VIA WHATSAPP <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+</div>
+
+<div id="adminModal" class="modal">
+    <div class="modal-content">
+        <span class="close-mark" onclick="toggleModal('adminModal')">&times;</span>
+        <i class="fas fa-user-shield"></i>
+        <h3>Admin Access</h3>
+        <input type="text" placeholder="Username" id="admUser">
+        <input type="password" placeholder="Password" id="admPass">
+        <button class="btn-whatsapp" style="background: var(--primary);" onclick="adminLogin()">LOGIN</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-info">
+        <h3 style="color: var(--accent); margin-bottom: 15px;">JAN MILAP COMPUTER EDUCATION CENTRE</h3>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--poster-red);"></i> Govt. District Library, Near GIC School Main Gate, Almora</p>
+        <p><i class="fas fa-phone-alt"></i> Contact: +91 9411794388</p>
+        <p><i class="fas fa-envelope"></i> Email: info@janmilapalmora.com</p>
+    </div>
+    
+    <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
+    
+    <div style="margin-top: 30px; font-size: 11px; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        © 2012 Jan Milap Almora. All Rights Reserved. Designed for Professional Education.
+    </div>
+</footer>
+
+<script>
+    // 1. WhatsApp Integration
+    function sendInquiry() {
+        const name = document.getElementById('s_name').value.trim();
+        const phone = document.getElementById('s_phone').value.trim();
+        const course = document.getElementById('s_course').value;
+        const msg = document.getElementById('s_msg').value.trim();
+
+        if(!name || !phone || !course) {
+            alert("कृपया नाम, मोबाइल नंबर और कोर्स चुनें!");
+            return;
+        }
+
+        const whatsappNumber = "9411794388";
+        const finalMsg = `*New Student Inquiry*%0A%0A` +
+                         `*Name:* ${name}%0A` +
+                         `*Phone:* ${phone}%0A` +
+                         `*Course:* ${course}%0A` +
+                         `*Message:* ${msg || "N/A"}`;
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${finalMsg}`, '_blank');
+    }
+
+    // 2. Modal Control (Admin Page)
+    function toggleModal(id) {
+        const modal = document.getElementById(id);
+        const isVisible = modal.style.display === "block";
+        modal.style.display = isVisible ? "none" : "block";
+    }
+
+    // 3. Admin Login Logic
+    function adminLogin() {
+        const u = document.getElementById('admUser').value;
+        const p = document.getElementById('admPass').value;
+        
+        // Default Demo Password
+        if(u === "admin" && p === "janmilap2026") {
+            alert("Login Successful! Redirecting to Dashboard...");
+        } else {
+            alert("ID या पासवर्ड गलत है!");
+        }
+    }
+
+    // 4. Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('adminModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
